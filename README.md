@@ -108,7 +108,7 @@ In this benchmark uws didn't include the `Status`, `Content-Type` and `Date` hea
 
 I had to make modifications in the `fastify` core to make it work with `uws`, this and other large servers are not presented in this repo.
 
-IMG1
+<img src="https://user-images.githubusercontent.com/8232674/35247293-285b0140-ffca-11e7-9b43-c948b2af6c95.png">
 
 #### Closed HTTP connections
 |                         | UpCloud (req/s)    | DigitalOcean (req/s) | Linode (req/s)     |
@@ -124,7 +124,7 @@ IMG1
 | php - symfony           | 728                | 522                  | 367                |
 
 
-IMG2
+<img src="https://user-images.githubusercontent.com/8232674/35247296-2aef84c6-ffca-11e7-8f50-b1460e0f4fff.png">
 
 #### Persistent HTTP/2 connections
 |                         | UpCloud (req/s)    | DigitalOcean (req/s) | Linode (req/s)     |
