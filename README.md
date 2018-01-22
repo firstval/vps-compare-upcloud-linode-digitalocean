@@ -5,6 +5,8 @@ You can find nonreferral coupon codes for DigitalOcean and Linode easy, for [UpC
 
 This is my referral code to get [25$](https://www.upcloud.com/register/?promo=6U86FH) free Credit without payment, if you think my benchmark was useful to you: **6U86FH**
 
+I have two student loans, so this helps me too to host my small projects, thanks! :)
+
 - Info
   * [1 - CPU](#1---cpu)
   * [2 - Memory](#2---memory)
