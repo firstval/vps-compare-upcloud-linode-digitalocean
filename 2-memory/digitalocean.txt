@@ -1,0 +1,9 @@
+### DigitalOcean 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.12.
+## mbw v1.2
+
+$ mbw 8 | grep AVG
+
+AVG     Method: MEMCPY  Elapsed: 0.00205        MiB: 8.00000    Copy: 3895.977 MiB/s
+AVG     Method: DUMB    Elapsed: 0.00094        MiB: 8.00000    Copy: 8498.885 MiB/s
+AVG     Method: MCBLOCK Elapsed: 0.00092        MiB: 8.00000    Copy: 8683.382 MiB/s

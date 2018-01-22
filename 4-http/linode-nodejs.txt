@@ -1,0 +1,81 @@
+### Linode 5$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.12.
+## Requests from UpCloud 1 core in Frankfurt
+## wrk v4.0.2
+## bombardier v1.0.3
+
+## uws v8.14.1
+## node.js v8.9.0 - express v4.16.2
+## node.js v8.9.0 - fastify v0.33.0
+
+
+### express.js
+# / size: 159 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec      2670.00     397.20       3463
+  Latency       46.80ms     8.65ms   111.08ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:   461.42KB/s
+
+# /keep size: 168 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000/keep
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec      6086.00     534.37       7370
+  Latency       20.54ms     4.89ms    58.00ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     1.08MB/s
+
+
+### express.js with uws.http server
+# / size: 56 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec     12536.00    1032.57      17292
+  Latency       10.01ms     3.06ms    29.20ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     1.81MB/s
+
+# /keep size: 60 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000/keep
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec     12678.00     732.07      13859
+  Latency        9.85ms     3.08ms    30.94ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     1.89MB/s
+
+
+### fastify
+# / size: 144 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec      4234.00     485.74       5710
+  Latency       29.51ms     4.25ms    54.17ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:   669.88KB/s
+
+# /keep size: 153 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000/keep
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec      9206.00    1092.35      11755
+  Latency       13.58ms     2.61ms    45.66ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     1.50MB/s

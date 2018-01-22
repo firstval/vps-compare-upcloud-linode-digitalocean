@@ -1,0 +1,17 @@
+### UpCloud 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.11.
+
+## ioping v0.9
+## hdparm v9.52
+
+$ ioping . -c 10
+
+--- . (ext4 /dev/vda1) ioping statistics ---
+10 requests completed in 9.00 s, 6.16 k iops, 24.1 MiB/s
+min/avg/max/mdev = 0.11 ms / 0.16 ms / 0.22 ms / 0.03 ms
+
+
+$ hdparm -Tt /dev/vda
+
+Timing cached reads:   22572 MB in  2.00 seconds = 11297.39 MB/sec
+Timing buffered disk reads: 1202 MB in  3.01 seconds = 399.89 MB/sec

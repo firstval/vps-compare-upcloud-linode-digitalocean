@@ -1,0 +1,56 @@
+### UpCloud 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.12.
+## Requests from UpCloud 1 core in Frankfurt
+## wrk v4.0.2
+## bombardier v1.0.3
+
+## Go v1.9.2 - iris v8.5.7
+## Go v1.9.2 - gin v1.2
+
+
+### iris.go
+# / size: 159 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec      8415.00    1236.18      11821
+  Latency       14.84ms     4.60ms    37.77ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     1.42MB/s
+
+# /keep size: 144 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000/keep
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec     25039.00    4929.60      30247
+  Latency        4.98ms     7.46ms   211.35ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     3.87MB/s
+
+
+### gin.go
+# / size: 159 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec      9247.00    1325.87      12124
+  Latency       13.51ms     4.20ms    53.78ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     1.56MB/s
+
+# /keep size: 144 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000/keep
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec     30341.00    1961.68      33192
+  Latency        4.11ms     1.86ms    25.08ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     4.68MB/s

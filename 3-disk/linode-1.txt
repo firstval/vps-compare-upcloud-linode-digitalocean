@@ -1,0 +1,17 @@
+### Linode 5$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.11.
+
+## ioping v0.9
+## hdparm v9.52
+
+$ ioping . -c 10
+
+--- . (ext4 /dev/root) ioping statistics ---
+10 requests completed in 9.00 s, 3.83 k iops, 15.0 MiB/s
+min/avg/max/mdev = 0.16 ms / 0.26 ms / 0.33 ms / 0.04 ms
+
+
+$ hdparm -Tt /dev/sda
+
+Timing cached reads:   19100 MB in  2.00 seconds = 9558.28 MB/sec
+Timing buffered disk reads: 3960 MB in  3.00 seconds = 1319.94 MB/sec

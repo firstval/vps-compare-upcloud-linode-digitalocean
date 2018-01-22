@@ -1,0 +1,32 @@
+### DigitalOcean 20$ - CPU 2 core - 2 GB ram - 512 MB swap
+## date: 2017.11.14.
+## redis v4.0.2
+## options: disabled transparent huge pages
+
+## https://redis.io/topics/benchmarks
+
+# get,set,lpush,lpop tests with pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q
+
+SET: 350569.69 requests per second
+GET: 433651.34 requests per second
+LPUSH: 607348.94 requests per second
+LPOP: 673174.00 requests per second
+
+
+# NON RANDOM get,set,lpush,lpop tests with pipelining
+$ redis-benchmark -n 2000000 -t get,set,lpush,lpop -P 16 -q
+
+SET: 618429.19 requests per second
+GET: 765110.94 requests per second
+LPUSH: 614062.00 requests per second
+LPOP: 602591.12 requests per second
+
+
+# get,set,lpush,lpop tests without pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -t get,set,lpush,lpop -q
+
+SET: 96186.22 requests per second
+GET: 102664.13 requests per second
+LPUSH: 89831.12 requests per second
+LPOP: 99815.34 requests per second

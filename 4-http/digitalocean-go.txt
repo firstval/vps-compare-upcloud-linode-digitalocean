@@ -1,0 +1,56 @@
+### DigitalOcean 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.12.
+## Requests from UpCloud 1 core in Frankfurt
+## wrk v4.0.2
+## bombardier v1.0.3
+
+## Go v1.9.2 - iris v8.5.7
+## Go v1.9.2 - gin v1.2
+
+
+### iris.go
+# / size: 159 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec      8518.00     619.24       9899
+  Latency       14.67ms     2.47ms    39.69ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     1.44MB/s
+
+# /keep size: 144 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000/keep
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec     22789.00    1088.06      23833
+  Latency        5.48ms     2.71ms    18.59ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     3.52MB/s
+
+
+### gin.go
+# / size: 159 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec      8415.00    1236.18      11821
+  Latency       14.84ms     4.60ms    37.77ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     1.42MB/s
+
+# /keep size: 144 B
+$ ./bombardier-linux-amd64 -c 125 -n 100000 http://x.x.x.x:3000/keep
+
+Statistics        Avg      Stdev        Max
+  Reqs/sec     26798.00    1300.65      28022
+  Latency        4.66ms     2.15ms    19.54ms
+  HTTP codes:
+    1xx - 0, 2xx - 100000, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     4.13MB/s

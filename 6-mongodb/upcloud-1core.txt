@@ -1,0 +1,571 @@
+### UpCloud 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2016.09.05.
+## mongoDB v3.2 - WiredTiger storage engine
+## mongo-perf r20160805
+## options: disabled transparent huge pages
+
+# using 1,2 thread - result: ops/sec or docs/sec
+$ python benchrun.py -f testcases/* -t 1 2 --includeFilter % --trialTime 10 --out out
+
+Insert.SingleIndex.Seq
+1       16677.10450211525
+2       15930.739740054036
+Insert.SingleIndex.Uncontested.Rnd
+1       15831.502629284005
+2       15680.127322537863
+Insert.SingleIndex.Contested.Rnd
+1       15763.17054973551
+2       15671.506049920707
+Insert.MultiIndex.Uncontested.Rnd
+1       12977.400222054872
+2       12642.866349684205
+Insert.MultiIndex.Contested.Rnd
+1       12867.060672671489
+2       12919.478053086656
+Insert.MultiKeyIndex.Uncontested.Rnd
+1       11311.900910543975
+2       11070.254975749976
+Insert.MultiKeyIndex.Contested.Rnd
+1       11243.416732307263
+2       11256.983304466326
+Update.SetWithIndex.Random
+1       12312.12913315907
+2       11669.15002834342
+Update.SetWithMultiIndex.Random
+1       10483.735809857591
+2       10283.415901976769
+Update.SetWithMultiIndex.String
+1       10236.323935228314
+2       10032.384659275107
+Insert.DocValidation.OneInt.Compare
+1       17053.443583029115
+2       17017.09118897345
+Insert.DocValidation.OneInt
+1       17191.514910066016
+2       16949.215250963898
+Insert.DocValidation.TenInt.Compare
+1       15739.35058641698
+2       16126.303343695552
+Insert.DocValidation.TenInt
+1       16323.206182288719
+2       16192.686297189335
+Insert.DocValidation.TwentyInt.Compare
+1       14491.914509284166
+2       14576.31345563624
+Insert.DocValidation.TwentyInt
+1       14779.403433934329
+2       14786.17104176764
+Update.DocValidation.OneNum.Compare
+1       14525.289158812002
+2       14465.628607669998
+Update.DocValidation.OneNum
+1       14509.65176835756
+2       14368.211762656569
+Update.DocValidation.TenNum.Compare
+1       12351.938138911455
+2       11899.60387317342
+Update.DocValidation.TenNum
+1       12021.127120414365
+2       12009.525623737863
+Update.DocValidation.TwentyNum.Compare
+1       9753.987363075485
+2       9622.283139906076
+Update.DocValidation.TwentyNum
+1       9669.670828801358
+2       9622.628415872097
+MultiUpdate.BigAllDocs.NoIndex
+1       4.835181013882199
+2       4.712896714217504
+MultiUpdate.BigAllDocs.Indexed
+1       0.933019900847975
+2       0.8284233906264814
+MultiUpdate.BigAllDocsMultiChange.NoIndex
+1       3.811305583249957
+2       3.9697540469409525
+MultiUpdate.BigAllDocsMultiChange.Indexed
+1       0.7529418142565957
+2       0.6585319779365446
+MultiUpdate.Contended.AllDocs.NoIndex
+1       159.44857783364864
+2       156.70108364442177
+MultiUpdate.Contended.AllDocs.Indexed
+1       30.661985270661436
+2       30.61006456928897
+Mixed.FindOneUpdateIntId-50-50
+1       25224.945051208873
+2       25462.289389167843
+Mixed.FindThenUpdate-50-50
+1       16887.001100080528
+2       16794.727299799077
+Inserts.PartialIndex.FilteredRange
+1       15806.57870789809
+2       15706.11940586553
+Inserts.PartialIndex.NonFilteredRange
+1       15452.35430756651
+2       15366.156158056976
+Inserts.PartialIndex.FullRange
+1       15512.995945279472
+2       15377.790995118063
+Queries.PartialIndex.FilteredRange
+1       26381.449126726613
+2       26255.155044829215
+Queries.PartialIndex.NonFilteredRange
+1       26340.71269681511
+2       26207.857337420086
+Queries.PartialIndex.FullRange
+1       26624.91808898259
+2       25978.45687966135
+Queries.PartialIndex.AllInFilter.FilteredRange
+1       25350.968760877855
+2       25052.320244997438
+Queries.PartialIndex.AllInFilter.FullRange
+1       25568.804246861047
+2       25168.506518018607
+Aggregation.Empty
+setting random seed: 258
+1       115.03275654513061
+setting random seed: 258
+2       51.868891004208656
+Aggregation.GeoNear2d
+setting random seed: 258
+1       534.5543339440003
+setting random seed: 258
+npm install -g mantra-cli2      535.4121238857285
+Aggregation.GeoNear2dSphere
+setting random seed: 258
+1       618.2192605645703
+setting random seed: 258
+2       615.1466439416654
+Aggregation.Group.All
+setting random seed: 258
+1       4229.931475110104
+setting random seed: 258
+2       4202.350784649796
+Aggregation.Group.TenGroups
+setting random seed: 258
+1       3719.0914025310462
+setting random seed: 258
+2       3759.95821979782
+Aggregation.Group.TenGroupsWithAvg
+setting random seed: 258
+1       3339.4700946133194
+setting random seed: 258
+2       3324.214117585888
+Aggregation.Limit
+setting random seed: 258
+1       1573.1268496014934
+setting random seed: 258
+2       1534.0114699903381
+Aggregation.Lookup
+1       23730.13014342316       Errors: 237306
+2       23478.817196473414      Errors: 234797
+Aggregation.LookupOrders
+setting random seed: 1554098974
+1       23409.56259877814       Errors: 234103
+setting random seed: 1554098974
+2       22570.10917220734       Errors: 225711
+Aggregation.Match
+setting random seed: 258
+1       2084.446429726756
+setting random seed: 258
+2       2065.981632230473
+Aggregation.Out
+setting random seed: 258
+1       63.38689792819824
+setting random seed: 258
+2       59.5257977528762
+Aggregation.Project
+setting random seed: 258
+1       2418.929367262476
+setting random seed: 258
+2       2430.2066740544415
+Aggregation.Redact
+setting random seed: 258
+1       2935.556451289532
+setting random seed: 258
+2       2888.54089788146
+Aggregation.Sample.SmallSample
+setting random seed: 258
+1       23701.785218758672      Errors: 237022
+setting random seed: 258
+2       23467.833125275236      Errors: 234688
+Aggregation.Sample.LargeSample
+setting random seed: 258
+1       23835.078011791542      Errors: 238356
+setting random seed: 258
+2       24230.773730615783      Errors: 242316
+Aggregation.Skip
+setting random seed: 258
+1       766.1464463633993
+setting random seed: 258
+2       754.895196933072
+Aggregation.Sort
+setting random seed: 258
+1       2521.911985271714
+setting random seed: 258
+2       2509.072427130859
+Aggregation.Unwind
+setting random seed: 258
+1       22494.063615165865      Errors: 224945
+setting random seed: 258
+2       21989.746904516935      Errors: 219904
+Aggregation.SortWithLimit
+setting random seed: 258
+1       3561.584960805766
+setting random seed: 258
+2       3543.8123069336216
+Aggregation.UnwindThenGroup
+setting random seed: 258
+1       5.462976316905071
+setting random seed: 258
+2       6.02527193412784
+Queries.UniqueIdx.Simple
+1       23594.443723899767
+2       24883.36671807704
+Queries.UniqueIdx.HaveNonUniqueIndices
+1       24272.22232110876
+2       23989.536376690437
+Queries.UniqueIdx.MultipleUniqueIndices
+1       24747.981759108272
+2       25065.145278546
+Queries.UniqueIdx.MultikeySimple
+1       12542.816532346369
+2       12233.156535966207
+Queries.UniqueIdx.MultikeyWithUniqueIdx
+1       12962.640747185056
+2       12919.5837358558
+Queries.UniqueIdx.ManyIdxIsect
+1       12778.940587506073
+2       12886.038168735842
+Queries.UniqueIdx.ManyIdxIsectRangePredicates
+1       12415.103279031631
+2       12548.810372776661
+Commands.isMaster
+1       45830.50713222661
+2       43080.4881412038
+Commands.buildInfo
+1       41792.28922958895
+2       40369.676214825624
+Commands.illegalOp
+1       50668.64369992147       Errors: 506695
+2       53750.155368800784      Errors: 537523
+Commands.nop
+1       1419921.6578175386
+2       1423701.0753445094
+Commands.CountsFullCollection
+1       32477.86736297525
+2       31236.478523883547
+Commands.CountsIntIDRange
+1       11953.08603975989
+2       11774.194887039346
+Commands.FindAndModifyInserts
+1       30851.75050410458
+2       30975.577805932404
+Commands.FindAndModifySortedUpdate
+setting random seed: 22002
+1       143.02698472429825
+setting random seed: 22002
+2       142.21748541496225
+Commands.FindAndModifySortedDelete
+setting random seed: 22002
+# ERROR MESSAGE
+1       0
+2       0
+Commands.FindAndModifySortedUpdateIndexed
+setting random seed: 22002
+1       10131.615301610025
+setting random seed: 22002
+2       10199.71759612526
+Commands.FindAndModifySortedDeleteIndexed
+# ERROR MESSAGE
+1       0
+2       0
+Commands.DistinctWithIndex
+1       11901.997689258693
+2       12328.380975160946
+Commands.DistinctWithIndexAndQuery
+1       11299.676266409926
+2       11505.916244161124
+Commands.DistinctWithoutIndex
+1       263.4779468958448
+2       262.76769646482995
+Commands.DistinctWithoutIndexAndQuery
+1       234.15501882088452
+2       232.84441336299085
+Geo.geoJSON.nearSphere.2dsphere.find
+1       200.94717098874705
+2       195.72367254340563
+Geo.geoJSON.nearSphere.2dsphere.withFilter.find30
+1       43.03038973851999
+2       41.14008358227078
+Geo.geoJSON.nearSphere.2dsphere.findOne
+1       43.27727077738771
+2       41.110182473332266
+Geo.geoJSON.within.2dsphere.centersphere
+1       658.0480142068776
+2       640.089894404655
+Geo.near.2d.find100
+1       1231.258796401785
+2       1237.9645391446547
+Geo.near.2d.withFilter.find30
+1       116.75863241653481
+2       115.90754710878059
+Geo.near.2d.findOne
+1       6126.1702686149265
+2       6093.093054657852
+Geo.within.2d.find
+1       2563.3102841400555
+2       2567.174105815845
+Insert.Empty
+1       17767.539318951825
+2       17025.127507463458
+Insert.EmptyCapped
+1       15749.721229934228
+2       15943.10196181719
+Insert.EmptyCapped.SeqIntID
+1       15401.82276719019
+2       14349.956672244378
+Insert.JustID
+1       16757.21680303603
+2       17191.249033172855
+Insert.IntVector
+1       1701.4292205444253
+2       1711.570991801297
+Insert.LargeDocVector
+1       494.0952081593135
+2       575.5999945656647
+Insert.SeqIntID.Indexed
+1       16069.365757192249
+2       15079.448011187367
+Insert.IntIDUpsert
+1       13016.914929563043
+2       12687.785677666348
+Insert.JustNum
+1       17035.369513831432
+2       16656.393707269057
+Insert.JustNumIndexed
+1       15591.569458727476
+2       14981.250188118094
+MultiUpdate.Uncontended.SingleDoc.NoIndex
+1       13585.75409785083
+2       13545.56694763272
+MultiUpdate.Uncontended.SingleDoc.Indexed
+1       11520.954603666942
+2       11230.166670116441
+MultiUpdate.Uncontended.TwoDocs.NoIndex
+1       9628.076628622215
+2       9622.1458347166
+MultiUpdate.Uncontended.TwoDocs.Indexed
+1       8005.161510705864
+2       7786.82344640508
+MultiUpdate.Contended.Low.NoIndex
+1       14000.632587917571
+2       12601.101447681236
+MultiUpdate.Contended.Low.Indexed
+1       10344.602418093815
+2       11039.145187218286
+MultiUpdate.Contended.Medium.NoIndex
+1       103.51782754849201
+2       101.24456859869221
+MultiUpdate.Contended.Medium.Indexed
+1       35.66282507114584
+2       34.15334553427582
+MultiUpdate.Contended.Hot.NoIndex
+1       5604.967722761743
+2       5581.336190962531
+MultiUpdate.Contended.Hot.Indexed
+1       3058.3611504037717
+2       3044.3421442203844
+MultiUpdate.Contended.Doc.Seq.NoIndex
+1       13498.119239119826
+2       12677.175085520386
+MultiUpdate.Contended.Doc.Seq.Indexed
+1       12216.869101173987
+2       12236.190974455463
+MultiUpdate.Contended.Doc.Rnd.NoIndex
+1       17512.069021895484
+2       16659.98691248162
+MultiUpdate.Contended.Doc.Rnd.Indexed
+1       16638.415652598425
+2       16624.67516416284
+Queries.Empty
+1       18426.538839838737
+2       18200.57561709044
+Queries.NoMatch
+1       15432.954616021605
+2       15511.302814841629
+Queries.IntIdFindOne
+1       24563.220308000735
+2       24274.721255090564
+Queries.IntNonIdFindOne
+1       16281.090659277474
+2       16206.518185997124
+Queries.IntIDRange
+1       11227.472157812992
+2       11129.664663129703
+Queries.IntNonIDRange
+1       10876.750922403879
+2       10803.567991272512
+Queries.RegexPrefixFindOne
+1       16074.162442588708
+2       16013.563545621222
+Queries.TwoInts
+1       8736.075482860091
+2       8742.017099651035
+Queries.IntNonIdFindOneProjectionCovered
+1       14729.327507441112
+2       14632.417165681638
+Queries.IntNonIdFindOneProjection
+1       14663.178876382608
+2       13842.692305807775
+Queries.IntNonIdFindProjectionCovered
+1       9163.132314678642
+2       9149.897287888289
+Queries.FindProjection
+1       12088.042524694223
+2       11957.547870238963
+Queries.FindWideDocProjection
+1       5770.65515655557
+2       5829.788727528597
+Queries.FindProjectionThreeFieldsCovered
+1       13233.832676579934
+2       13173.278221267956
+Queries.FindProjectionThreeFields
+1       10936.78392694451
+2       10842.574135154446
+Queries.FindProjectionDottedField
+1       9620.871985333948
+2       9615.157705105432
+Queries.FindProjectionDottedField.Indexed
+1       13322.404242625813
+2       13288.652183990662
+Queries.LargeDocs
+1       1.0888261395085217
+2       1.4861816686178995
+Remove.IntId
+1       22616.768505940112
+2       22746.258471973815
+Remove.IntNonIdNoIndex
+1       2079.2808437990634
+2       2057.282149907839
+Remove.IntNonIdIndex
+1       16691.726255689406
+2       17238.739771576074
+Queries.Text.FindSingle
+1       13263.346670078603
+2       13591.279453996913
+Queries.Text.FindSingleLargeDocuments
+1       10.881362402477038
+2       74.00347726460377
+Queries.Text.FindSingleCaseSensitive
+1       16458.60788762416
+2       16677.254590247358
+Queries.Text.FindThreeWords
+1       11047.31939808729
+2       10971.366952126862
+Queries.Text.FindThreeWordsCaseSensitive
+1       16287.07979334133
+2       15562.994233735597
+Queries.Text.FindPhrase
+1       15738.164052855735
+2       15528.332584879963
+Queries.Text.FindPhraseCaseSensitive
+1       15734.96501118962
+2       15577.090297926601
+Update.IncNoIndex
+1       12285.580574905052
+2       12276.441209941504
+Update.IncWithIndex
+1       10606.28817512765
+2       10469.934599282486
+Update.IncNoIndexUpsert
+1       12351.72697784527
+2       12318.977675346565
+Update.IncWithIndexUpsert
+1       11012.724681882954
+2       11794.066658620433
+Update.IncFewSmallDoc
+1       12480.56177677585
+2       12390.980817903728
+Update.IncFewLargeDoc
+1       12059.111787228285
+2       12021.024192941159
+Update.IncFewSmallDocLongFields
+1       12243.81389402881
+2       12176.948384238194
+Update.IncFewLargeDocLongFields
+1       12145.02795137389
+2       12096.166559054745
+Update.SingleDocFieldAtOffset
+1       18170.47487327616
+2       17598.946954976807
+Update.FieldAtOffset
+1       579.497834531772
+2       781.1679931060476
+Update.MmsIncShallow1
+1       14221.044473888154
+2       14225.434249677115
+Update.MmsIncShallow2
+1       14002.400931573451
+2       14089.563151745542
+Update.MmsIncDeep1
+1       13980.725316561517
+2       13863.715313713245
+Update.MmsIncDeepSharedPath2
+1       13324.08022207467
+2       13255.23665244227
+Update.MmsIncDeepSharedPath3
+1       12824.225532614448
+2       12786.846592139142
+Update.MmsIncDeepDistinctPath2
+1       12968.583566560976
+2       12904.794132070023
+Update.MmsIncDeepDistinctPath3
+1       12167.725234062791
+2       12169.937748876002
+Update.MmsIncDeepDistinctPath4
+1       12221.346803077391
+2       11780.1532695855
+Where.CompareToInt.QueryLanguage
+1       5892.120879525262
+2       5940.787709332973
+Where.CompareToInt.Where.DoubleEquals
+1       177.6414493782849
+2       169.71952026215322
+Where.CompareToInt.Where.TripleEquals
+1       177.78993708956074
+2       170.0195072910598
+Where.SimpleNested.Where
+1       282.45523084591093
+2       272.54017743105385
+Where.SimpleNested.QueryLanguage
+1       18793.892172539858
+2       18523.5516485134
+Where.CompareFields.Equals
+1       169.85329034515507
+2       161.5425393187643
+Where.CompareFields.Gt
+1       302.1564894655169
+2       281.6508655870183
+Where.CompareFields.Gte
+1       296.50709248562885
+2       276.35307291452665
+Where.CompareFields.Lt
+1       285.07733635176004
+2       268.3399455201926
+Where.CompareFields.Lte
+1       277.79259471468873
+2       272.61603426144745
+Where.Mixed
+1       160.15685180585592
+2       153.91788391058031
+Where.ComplexNested
+1       14.781653012281158
+2       14.94433831750263
+Where.ReallyBigNestedComparison.Where
+1       36.57156926205568
+2       40.49480260180104
+Where.ReallyBigNestedComparison.QueryLanguage
+1       19707.396645766425
+2       19223.298815747123
+Finished Testing.

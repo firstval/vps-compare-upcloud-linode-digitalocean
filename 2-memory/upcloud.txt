@@ -1,0 +1,9 @@
+### UpCloud 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.12.
+## mbw v1.2
+
+$ mbw 8 | grep AVG
+
+AVG     Method: MEMCPY  Elapsed: 0.00081        MiB: 8.00000    Copy: 9877.763 MiB/s
+AVG     Method: DUMB    Elapsed: 0.00061        MiB: 8.00000    Copy: 13183.916 MiB/s
+AVG     Method: MCBLOCK Elapsed: 0.00058        MiB: 8.00000    Copy: 13682.230 MiB/s

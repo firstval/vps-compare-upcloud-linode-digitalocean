@@ -1,0 +1,10 @@
+### Linode 5$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.12.
+## Ubuntu 16.04
+
+$ cat /proc/cpuinfo
+# CPU model:
+# Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz
+# cpu MHz : 2499.996
+# cache size : 4096 KB
+

@@ -1,0 +1,32 @@
+### UpCloud 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.13.
+
+## node.js v8.9.0 - fastify v0.33.0 - uws.http server v8.14.1
+
+## Erlang/OTP 20 - Elixir v1.5.2 - phoenix v1.3.0
+## php v7.1 - laravel v5.5
+## php v7.1 - symfony v3.0
+
+
+# fastify with uws.http server
+# /
+Requests/sec: 56782.00
+# /keep
+Requests/sec: 62976.00
+
+
+# phoenix
+# /
+Requests/sec: 8513.00
+# /keep
+Requests/sec: 22819.00
+
+
+# laravel
+# /
+Requests/sec: 812.00
+
+
+# symfony
+# /
+Requests/sec: 728.00

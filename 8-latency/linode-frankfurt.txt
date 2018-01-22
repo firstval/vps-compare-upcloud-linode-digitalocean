@@ -1,0 +1,40 @@
+### Linode 5$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.14.
+## Linode Data Center
+
+$ ping -c 42
+# Public Network
+
+# frankfurt-frankfurt:
+42 packets transmitted, 42 received, 0% packet loss, time 41537ms
+rtt min/avg/max/mdev = 0.470/0.633/1.848/0.288 ms
+
+# frankfurt-london:
+42 packets transmitted, 42 received, 0% packet loss, time 41046ms
+rtt min/avg/max/mdev = 16.921/16.997/17.088/0.179 ms
+
+
+# frankfurt-newark:
+42 packets transmitted, 42 received, 0% packet loss, time 41021ms
+rtt min/avg/max/mdev = 81.234/82.116/85.954/1.177 ms
+
+# frankfurt-atlanta:
+42 packets transmitted, 42 received, 0% packet loss, time 41062ms
+rtt min/avg/max/mdev = 99.591/100.579/104.856/1.146 ms
+
+# frankfurt-dallas:
+42 packets transmitted, 42 received, 0% packet loss, time 41070ms
+rtt min/avg/max/mdev = 117.723/117.886/120.009/0.414 ms
+
+# frankfurt-fremont:
+42 packets transmitted, 42 received, 0% packet loss, time 41063ms
+rtt min/avg/max/mdev = 147.775/147.890/148.234/0.199 ms
+
+
+# frankfurt-singapore:
+42 packets transmitted, 42 received, 0% packet loss, time 41009ms
+rtt min/avg/max/mdev = 258.146/258.297/258.596/0.603 ms
+
+# frankfurt-tokio:
+42 packets transmitted, 42 received, 0% packet loss, time 41058ms
+rtt min/avg/max/mdev = 246.384/246.567/247.459/0.390 ms

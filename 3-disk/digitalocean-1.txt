@@ -1,0 +1,18 @@
+### DigitalOcean 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.11.
+
+## ioping v0.9
+## hdparm v9.52
+
+$ ioping . -c 10
+
+--- . (ext4 /dev/vda1) ioping statistics ---
+10 requests completed in 9.00 s, 4.05 k iops, 15.8 MiB/s
+min/avg/max/mdev = 0.11 ms / 0.25 ms / 0.35 ms / 0.06 ms
+
+
+$ hdparm -Tt /dev/vda
+
+Timing cached reads:   19404 MB in  2.00 seconds = 9712.05 MB/sec
+Timing buffered disk reads: 3936 MB in  3.00 seconds = 1311.79 MB/sec
+

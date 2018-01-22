@@ -1,0 +1,27 @@
+### UpCloud 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.14.
+## UpCloud Data Center
+
+$ ping -c 42
+# Private Encrypted Network
+
+# frankfurt-frankfurt:
+42 packets transmitted, 42 received, 0% packet loss, time 40999ms
+rtt min/avg/max/mdev = 0.199/0.264/0.347/0.033 ms
+
+# frankfurt-amsterdam:
+42 packets transmitted, 42 received, 0% packet loss, time 41051ms
+rtt min/avg/max/mdev = 7.014/7.181/9.988/0.477 ms
+
+# frankfurt-london:
+42 packets transmitted, 41 received, 2% packet loss, time 41059ms
+rtt min/avg/max/mdev = 16.080/16.121/16.174/0.101 ms
+
+# frankfurt-chicago:
+42 packets transmitted, 42 received, 0% packet loss, time 41046ms
+rtt min/avg/max/mdev = 102.870/103.115/106.662/0.694 ms
+
+# frankfurt-singapore:
+42 packets transmitted, 42 received, 0% packet loss, time 41019ms
+rtt min/avg/max/mdev = 342.384/343.052/347.416/1.287 ms
+

@@ -1,0 +1,95 @@
+### UpCloud 20$ - CPU 2 core - 2 GB ram - 1 GB swap
+## date: 2017.11.14.
+
+## deepstream.io v3.1.0 - node.js v8.9.0 - uws.socket v8.14.1
+## node.js v8.9.0 - socket.io v2.0.4
+## Erlang/OTP 20 - Elixir v1.5.2 - phoenix v1.3.0
+## node.js v8.9.0 - meteor.js v1.6
+
+
+## deepstream.io
+# 100 messages/sec
+avg-success/sec: 100
+avg-failed/sec: 0
+avg-latency: 1.17ms
+
+# 1 000 messages/sec
+avg-success/sec: 1000
+avg-failed/sec: 0
+avg-latency: 1.54ms
+
+# 10 000 messages/sec
+avg-success/sec: 10000
+avg-failed/sec: 0
+avg-latency: 1.68ms
+
+# 100 000 messages/sec
+avg-success/sec: 100000
+avg-failed/sec: 0
+avg-latency: 8.24ms
+
+
+## socket.io
+# 100 messages/sec
+avg-success/sec: 100
+avg-failed/sec: 0
+avg-latency: 0.64ms
+
+# 1 000 messages/sec
+avg-success/sec: 1000
+avg-failed/sec: 0
+avg-latency: 9.83ms
+
+# 10 000 messages/sec
+avg-success/sec: 10000
+avg-failed/sec: 0
+avg-latency: 44.58ms
+
+# 100 000 messages/sec
+avg-success/sec: 81469
+avg-failed/sec: 18531
+avg-latency: 341.62ms
+
+
+## phoenix
+# 100 messages/sec
+avg-success/sec: 100
+avg-failed/sec: 0
+avg-latency: 1.05ms
+
+# 1 000 messages/sec
+avg-success/sec: 1000
+avg-failed/sec: 0
+avg-latency: 2.44ms
+
+# 10 000 messages/sec
+avg-success/sec: 10000
+avg-failed/sec: 0
+avg-latency: 98.32ms
+
+# 100 000 messages/sec
+avg-success/sec: 46249
+avg-failed/sec: 53751
+avg-latency: 839.88ms
+
+
+## meteor.js
+# 100 messages/sec
+avg-success/sec: 100
+avg-failed/sec: 0
+avg-latency: 58.14ms
+
+# 1 000 messages/sec
+avg-success/sec: 0
+avg-failed/sec: ALL
+avg-latency: -
+
+# 10 000 messages/sec
+avg-success/sec: 0
+avg-failed/sec: ALL
+avg-latency: -
+
+# 100 000 messages/sec
+avg-success/sec: 0
+avg-failed/sec: ALL
+avg-latency: -

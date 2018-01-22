@@ -1,0 +1,118 @@
+### Linode 5$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.11.
+## fio v2.2.10
+
+# rand read 4 GB
+$ sudo fio --name=randread --ioengine=libaio --direct=1 --bs=4k --iodepth=64 --size=4G --rw=randread --gtod_reduce=1
+
+randread: (groupid=0, jobs=1): err= 0: pid=4147: Sat Nov 11 18:09:54 2017
+  read : io=4096.0MB, bw=241191KB/s, iops=60297, runt= 17390msec
+  cpu          : usr=6.23%, sys=86.66%, ctx=96350, majf=0, minf=73
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued    : total=r=1048576/w=0/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: io=4096.0MB, aggrb=241190KB/s, minb=241190KB/s, maxb=241190KB/s, mint=17390msec, maxt=17390msec
+
+Disk stats (read/write):
+  sda: ios=1046776/0, merge=0/0, ticks=143133/0, in_queue=142817, util=93.76%
+
+
+# rand read 256 MB
+$ sudo fio --name=randread --ioengine=libaio --direct=1 --bs=4k --iodepth=64 --size=256M --rw=randread --gtod_reduce=1
+
+randread: (groupid=0, jobs=1): err= 0: pid=4284: Sat Nov 11 18:23:13 2017
+  read : io=262144KB, bw=207228KB/s, iops=51807, runt=  1265msec
+  cpu          : usr=6.80%, sys=85.13%, ctx=10974, majf=0, minf=73
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=99.9%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued    : total=r=65536/w=0/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: io=262144KB, aggrb=207228KB/s, minb=207228KB/s, maxb=207228KB/s, mint=1265msec, maxt=1265msec
+
+Disk stats (read/write):
+  sda: ios=58586/0, merge=0/0, ticks=4340/0, in_queue=4307, util=86.89%
+
+
+# rand write 4 GB
+$ sudo fio --name=randwrite --ioengine=libaio --direct=1 --bs=4k --iodepth=64 --size=4G --rw=randwrite --gtod_reduce=1
+
+randwrite: (groupid=0, jobs=1): err= 0: pid=4274: Sat Nov 11 18:18:21 2017
+  write: io=4096.0MB, bw=209391KB/s, iops=52347, runt= 20031msec
+  cpu          : usr=7.80%, sys=83.31%, ctx=113435, majf=0, minf=9
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued    : total=r=0/w=1048576/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+  WRITE: io=4096.0MB, aggrb=209390KB/s, minb=209390KB/s, maxb=209390KB/s, mint=20031msec, maxt=20031msec
+
+Disk stats (read/write):
+  sda: ios=0/1041773, merge=0/41, ticks=0/150700, in_queue=156117, util=98.28%
+
+
+# rand write 256 MB
+$ sudo fio --name=randwrite --ioengine=libaio --direct=1 --bs=4k --iodepth=64 --size=256M --rw=randwrite --gtod_reduce=1
+
+randwrite: (groupid=0, jobs=1): err= 0: pid=4295: Sat Nov 11 18:25:53 2017
+  write: io=262144KB, bw=203686KB/s, iops=50921, runt=  1287msec
+  cpu          : usr=5.91%, sys=84.45%, ctx=9402, majf=0, minf=9
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=99.9%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued    : total=r=0/w=65536/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+  WRITE: io=262144KB, aggrb=203686KB/s, minb=203686KB/s, maxb=203686KB/s, mint=1287msec, maxt=1287msec
+
+Disk stats (read/write):
+  sda: ios=0/58121, merge=0/0, ticks=0/6460, in_queue=6434, util=85.67%
+
+# rand read write 4 GB
+$ sudo fio --randrepeat=1 --name=reandreadwrite --ioengine=libaio --direct=1 --bs=4k --iodepth=64 --size=4G --rw=randrw --gtod_reduce=1 --rwmixread=75
+
+reandreadwrite: (groupid=0, jobs=1): err= 0: pid=4329: Sat Nov 11 18:38:14 2017
+  read : io=3071.7MB, bw=164827KB/s, iops=41206, runt= 19083msec
+  write: io=1024.4MB, bw=54966KB/s, iops=13741, runt= 19083msec
+  cpu          : usr=7.00%, sys=84.61%, ctx=105091, majf=0, minf=9
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued    : total=r=786347/w=262229/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: io=3071.7MB, aggrb=164826KB/s, minb=164826KB/s, maxb=164826KB/s, mint=19083msec, maxt=19083msec
+  WRITE: io=1024.4MB, aggrb=54965KB/s, minb=54965KB/s, maxb=54965KB/s, mint=19083msec, maxt=19083msec
+
+Disk stats (read/write):
+  sda: ios=783638/261328, merge=1/3, ticks=120123/48520, in_queue=172206, util=97.40%
+
+# rand read write 256 MB
+$ sudo fio --randrepeat=1 --name=reandreadwrite --ioengine=libaio --direct=1 --bs=4k --iodepth=64 --size=256M --rw=randrw --gtod_reduce=1 --rwmixread=75
+
+reandreadwrite: (groupid=0, jobs=1): err= 0: pid=4334: Sat Nov 11 18:39:36 2017
+  read : io=196444KB, bw=148821KB/s, iops=37205, runt=  1320msec
+  write: io=65700KB, bw=49773KB/s, iops=12443, runt=  1320msec
+  cpu          : usr=8.04%, sys=82.34%, ctx=9190, majf=0, minf=9
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=99.9%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued    : total=r=49111/w=16425/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: io=196444KB, aggrb=148821KB/s, minb=148821KB/s, maxb=148821KB/s, mint=1320msec, maxt=1320msec
+  WRITE: io=65700KB, aggrb=49772KB/s, minb=49772KB/s, maxb=49772KB/s, mint=1320msec, maxt=1320msec
+
+Disk stats (read/write):
+  sda: ios=41893/14062, merge=0/0, ticks=5147/1740, in_queue=6870, util=85.00%

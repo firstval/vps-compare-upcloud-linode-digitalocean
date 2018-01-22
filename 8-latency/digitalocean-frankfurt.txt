@@ -1,0 +1,37 @@
+### DigitalOcean 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.14.
+## DigitalOcean Data Center
+
+$ ping -c 42
+# Public Network
+
+# frankfurt-frankfurt:
+42 packets transmitted, 42 received, 0% packet loss, time 41003ms
+rtt min/avg/max/mdev = 0.327/0.625/2.666/0.574 ms
+
+# frankfurt-amsterdam:
+42 packets transmitted, 42 received, 0% packet loss, time 41064ms
+rtt min/avg/max/mdev = 6.090/6.390/8.326/0.423 ms
+
+# frankfurt-london:
+42 packets transmitted, 42 received, 0% packet loss, time 41058ms
+rtt min/avg/max/mdev = 15.987/16.404/19.953/0.719 ms
+
+
+# frankfurt-new-york:
+42 packets transmitted, 42 received, 0% packet loss, time 41069ms
+rtt min/avg/max/mdev = 83.702/84.007/87.183/0.658 ms
+
+# frankfurt-san-francisco:
+42 packets transmitted, 42 received, 0% packet loss, time 41026ms
+rtt min/avg/max/mdev = 152.280/152.691/156.206/0.855 ms
+
+
+# frankfurt-bangalore:
+42 packets transmitted, 42 received, 0% packet loss, time 41066ms
+rtt min/avg/max/mdev = 125.512/126.019/131.724/1.096 ms
+
+
+# frankfurt-singapore:
+42 packets transmitted, 42 received, 0% packet loss, time 41067ms
+rtt min/avg/max/mdev = 163.979/165.436/171.326/1.767 ms

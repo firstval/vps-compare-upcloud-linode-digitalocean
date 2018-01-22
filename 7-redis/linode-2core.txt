@@ -1,0 +1,32 @@
+### Linode 20$ - CPU 2 core - 4 GB ram - 512 MB swap
+## date: 2017.11.14.
+## redis v4.0.2
+## options: disabled transparent huge pages
+
+## https://redis.io/topics/benchmarks
+
+# get,set,lpush,lpop tests with pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q
+
+SET: 257698.75 requests per second
+GET: 333111.25 requests per second
+LPUSH: 350385.41 requests per second
+LPOP: 329489.28 requests per second
+
+
+# NON RANDOM get,set,lpush,lpop tests with pipelining
+$ redis-benchmark -n 2000000 -t get,set,lpush,lpop -P 16 -q
+
+SET: 614628.19 requests per second
+GET: 638977.62 requests per second
+LPUSH: 372578.25 requests per second
+LPOP: 297530.50 requests per second
+
+
+# get,set,lpush,lpop tests without pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -t get,set,lpush,lpop -q
+
+SET: 58418.04 requests per second
+GET: 66815.89 requests per second
+LPUSH: 63201.14 requests per second
+LPOP: 61812.34 requests per second

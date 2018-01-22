@@ -1,0 +1,206 @@
+### DigitalOcean 10$ - CPU 1 core - 1 GB ram - 512 MB swap
+## date: 2017.11.14.
+## redis v4.0.2
+## options: disabled transparent huge pages
+
+## https://redis.io/topics/benchmarks
+
+# get,set,lpush,lpop tests with pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q
+
+SET: 322216.88 requests per second
+GET: 423549.34 requests per second
+LPUSH: 487210.72 requests per second
+LPOP: 509554.16 requests per second
+
+
+# get,set,lpush,lpop tests with pipelining - no random
+$ redis-benchmark -n 2000000 -t get,set,lpush,lpop -P 16 -q
+
+SET: 520833.34 requests per second
+GET: 613496.94 requests per second
+LPUSH: 510204.09 requests per second
+LPOP: 515463.91 requests per second
+
+
+# get,set,lpush,lpop tests without pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -t get,set,lpush,lpop -q
+
+SET: 80163.54 requests per second
+GET: 73086.06 requests per second
+LPUSH: 68275.70 requests per second
+LPOP: 61081.76 requests per second
+
+
+# ALL tests with pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -P 16 -q
+
+PING_INLINE: 574052.81 requests per second
+PING_BULK: 724637.69 requests per second
+SET: 295639.31 requests per second
+GET: 413308.50 requests per second
+INCR: 411522.62 requests per second
+LPUSH: 504668.19 requests per second
+RPUSH: 560067.19 requests per second
+LPOP: 437158.50 requests per second
+RPOP: 464037.12 requests per second
+SADD: 361467.56 requests per second
+HSET: 296076.97 requests per second
+SPOP: 487804.88 requests per second
+LPUSH (needed to benchmark LRANGE): 520291.34 requests per second
+LRANGE_100 (first 100 elements): 49413.22 requests per second
+LRANGE_300 (first 300 elements): 12149.19 requests per second
+LRANGE_500 (first 450 elements): 7815.92 requests per second
+LRANGE_600 (first 600 elements): 5864.09 requests per second
+MSET (10 keys): 69844.59 requests per second
+
+
+# ALL tests without pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -q
+
+PING_INLINE: 83507.30 requests per second
+PING_BULK: 66903.06 requests per second
+SET: 80541.23 requests per second
+GET: 86385.62 requests per second
+INCR: 70459.75 requests per second
+LPUSH: 80570.44 requests per second
+RPUSH: 86843.24 requests per second
+LPOP: 69574.90 requests per second
+RPOP: 85342.44 requests per second
+SADD: 83832.84 requests per second
+HSET: 56593.09 requests per second
+SPOP: 79621.01 requests per second
+LPUSH (needed to benchmark LRANGE): 64871.88 requests per second
+LRANGE_100 (first 100 elements): 28245.00 requests per second
+LRANGE_300 (first 300 elements): 12520.58 requests per second
+LRANGE_500 (first 450 elements): 8329.76 requests per second
+LRANGE_600 (first 600 elements): 6846.53 requests per second
+MSET (10 keys): 34008.40 requests per second
+
+
+# get,set,lpush,lpop DETAILED tests with pipelining
+$ redis-benchmark -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16
+
+====== SET ======
+  2000000 requests completed in 5.41 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.00% <= 1 milliseconds
+7.70% <= 2 milliseconds
+98.14% <= 3 milliseconds
+99.48% <= 4 milliseconds
+99.56% <= 5 milliseconds
+99.96% <= 6 milliseconds
+99.97% <= 7 milliseconds
+100.00% <= 7 milliseconds
+369959.28 requests per second
+
+====== GET ======
+  2000000 requests completed in 4.76 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.03% <= 1 milliseconds
+87.81% <= 2 milliseconds
+99.96% <= 3 milliseconds
+100.00% <= 3 milliseconds
+420256.38 requests per second
+
+====== LPUSH ======
+  2000000 requests completed in 4.10 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.05% <= 1 milliseconds
+95.36% <= 2 milliseconds
+99.74% <= 3 milliseconds
+99.96% <= 12 milliseconds
+100.00% <= 12 milliseconds
+488162.06 requests per second
+
+====== LPOP ======
+  2000000 requests completed in 3.95 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.09% <= 1 milliseconds
+98.34% <= 2 milliseconds
+100.00% <= 2 milliseconds
+505689.00 requests per second
+
+
+# get,set,lpush,lpop DETAILED tests without pipelining
+$ redis-benchmark -n 100000 -t get,set,lpush,lpop
+
+====== SET ======
+  2000000 requests completed in 31.15 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+93.46% <= 1 milliseconds
+95.61% <= 2 milliseconds
+97.00% <= 3 milliseconds
+98.43% <= 4 milliseconds
+99.64% <= 5 milliseconds
+99.86% <= 6 milliseconds
+99.91% <= 7 milliseconds
+99.95% <= 8 milliseconds
+99.99% <= 9 milliseconds
+99.99% <= 10 milliseconds
+99.99% <= 11 milliseconds
+100.00% <= 12 milliseconds
+64199.27 requests per second
+
+====== GET ======
+  2000000 requests completed in 23.80 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+99.38% <= 1 milliseconds
+99.91% <= 2 milliseconds
+99.96% <= 3 milliseconds
+99.97% <= 4 milliseconds
+99.99% <= 5 milliseconds
+99.99% <= 6 milliseconds
+100.00% <= 7 milliseconds
+84033.62 requests per second
+
+====== LPUSH ======
+  2000000 requests completed in 26.45 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+97.06% <= 1 milliseconds
+98.06% <= 2 milliseconds
+98.68% <= 3 milliseconds
+99.26% <= 4 milliseconds
+99.88% <= 5 milliseconds
+99.95% <= 6 milliseconds
+99.98% <= 7 milliseconds
+99.99% <= 8 milliseconds
+100.00% <= 9 milliseconds
+75602.93 requests per second
+
+====== LPOP ======
+  2000000 requests completed in 29.55 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+97.35% <= 1 milliseconds
+98.34% <= 2 milliseconds
+98.88% <= 3 milliseconds
+99.36% <= 4 milliseconds
+99.95% <= 5 milliseconds
+99.98% <= 6 milliseconds
+99.99% <= 7 milliseconds
+100.00% <= 11 milliseconds
+67684.19 requests per second

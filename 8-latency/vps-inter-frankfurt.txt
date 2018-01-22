@@ -1,0 +1,13 @@
+### Between VPS providers:
+
+# UpCloud-frankfurt-DigitalOcean-frankfurt
+42 packets transmitted, 42 received, 0% packet loss, time 41001ms
+rtt min/avg/max/mdev = 0.683/0.821/1.739/0.229 ms
+
+# UpCloud-frankfurt-Linode-frankfurt
+42 packets transmitted, 42 received, 0% packet loss, time 41056ms
+rtt min/avg/max/mdev = 1.145/1.214/1.317/0.037 ms
+
+# DigitalOcean-frankfurt-Linode-frankfurt
+42 packets transmitted, 42 received, 0% packet loss, time 41012ms
+rtt min/avg/max/mdev = 0.770/0.872/1.464/0.131 ms
